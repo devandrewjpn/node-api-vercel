@@ -29,7 +29,7 @@ app.get('/api', (req, res) => {
 })
 
 app.get('/api/about', (req, res) => {
-  res.send('This is my about route..... ')
+  res.json('This is my about route..... ')
 })
 
 export default app
