@@ -2,7 +2,6 @@ import express from "express";
 import mysql from 'mysql'
 
 const app = express()
-const PORT = 4000
 
 const connection  = mysql.createConnection({
     host: 'srv1075.hstgr.io',
@@ -19,10 +18,6 @@ const connection  = mysql.createConnection({
     }
   });
 
-app.listen(PORT, () => {
-  console.log(`API listening on PORT ${PORT} `)
-})
-
 app.get('/', (req, res) => {
     try {
         connection.query('SELECT * FROM items', (error, results) => {
@@ -36,3 +31,5 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
   res.send('This is my about route..... ')
 })
+
+export default app
