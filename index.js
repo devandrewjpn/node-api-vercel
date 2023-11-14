@@ -1,4 +1,5 @@
-const express = require('express')
+import express from "express";
+import mysql from 'mysql'
 
 const app = express()
 const PORT = 4000
@@ -24,7 +25,7 @@ app.listen(PORT, () => {
 
 app.get('/', (req, res) => {
     try {
-        connection.query('SELECT * FROM items ORDER BY id ASC', (error, results) => {
+        connection.query('SELECT * FROM items', (error, results) => {
             res.json(results)
         });
       } catch (err) {
@@ -35,5 +36,3 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
   res.send('This is my about route..... ')
 })
-
-module.exports = app
