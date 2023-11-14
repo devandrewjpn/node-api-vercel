@@ -18,7 +18,7 @@ const connection  = mysql.createConnection({
     }
   });
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     try {
         connection.query('SELECT * FROM items', (error, results) => {
             res.json(results)
@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
       }
 })
 
-app.get('/about', (req, res) => {
+app.get('/api/about', (req, res) => {
   res.send('This is my about route..... ')
 })
 
